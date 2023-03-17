@@ -3,8 +3,8 @@
  *main -program that prints size of various types on the compu it is compiled & run on
  *Return: 0 (Success)
  */
-int main(void) 
-{   
+int main(void)
+{
 	char a;
 	int b;
 	long int c;
