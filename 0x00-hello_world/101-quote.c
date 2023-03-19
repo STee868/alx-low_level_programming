@@ -6,6 +6,8 @@
 */
 int main(void)
 {
-	fputs("and that piece of art is useful\"- Dora Korpar,2015-10-19"\n, stdout);
+	char *msg = "and that piece of art is useful\"- Dora Korpar,2015-10-19"\n;
+
+	write(STDERR_FILENO, message, sizeof(char) * 59);
 	return (1);
 }
