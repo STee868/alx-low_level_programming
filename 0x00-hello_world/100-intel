@@ -1,0 +1,4 @@
+#!/bin/bash
+CFILE="main.c"
+OUTPUTFILE="${CFILE%.*}.s"
+gcc -S -masm=intel $CFILE -o $OUTPUTFILE
