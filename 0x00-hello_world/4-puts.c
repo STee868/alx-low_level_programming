@@ -1,5 +1,5 @@
 #include <stdio.h>
-/** 
+/**
  *A C program that prints a line using put function
  *Return: 0 (success)
  **/
