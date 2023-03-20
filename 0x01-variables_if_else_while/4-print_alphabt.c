@@ -1,11 +1,10 @@
 #include <stdio.h>
-
 /**
-*main - program will print alphabet in lowercase but not letters e and q.
-*
-*return: Always 0 (Success)
-**/
-
+ * main - Entry point
+ *
+ * Description:prints alphabet in lowercase except for letters 'e' and 'q'.
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	char c;
