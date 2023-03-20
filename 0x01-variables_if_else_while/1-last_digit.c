@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <time.h>
-using namespace std;
 /**
 *main- program assigns a random number to the variable n
 *result: 0 (success)
