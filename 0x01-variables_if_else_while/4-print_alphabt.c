@@ -1,9 +1,11 @@
 #include <stdio.h>
+
 /**
 *main - program will print alphabet in lowercase but not letters e and q.
 *
 *return: Always 0 (Success)
 **/
+
 int main(void)
 {
 	char c;
@@ -14,7 +16,7 @@ int main(void)
 		{
 			putchar(c);
 		}
-		putchar('\n');
 	}
+	putchar('\n');
 return (0);
 }
