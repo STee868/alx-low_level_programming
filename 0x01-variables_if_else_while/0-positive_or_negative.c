@@ -2,9 +2,9 @@
 #include <time.h>
 #include <stdio.h>
 /**
- *main - A program will assign a random number to n each time it is executed
- *result: 0 (success)
- **/
+*main- A program will assign a random number to n each time it is executed
+*result: 0 (success)
+**/
 int main(void)
 {
 	int n;
@@ -17,5 +17,5 @@ srand(time(0));
 		printf("%d is zero\n", n);
 	else
 		printf("%d is negative\n", n);
-	return (0);
+return (0);
 }
