@@ -5,7 +5,7 @@
  * print_alphabet_x10 - function that prints 10 times the alphabet in lowercase
  * Return: 0 (success)
  **/
-void print_alphabet_x10(void)
+void print_alphabet(void)
 {
 	char letter;
 	int i;
@@ -14,9 +14,9 @@ void print_alphabet_x10(void)
 	{
 		for (letter = 'a'; letter <= 'z'; letter++)
 		{
-			_putchar(letter);
+			putchar(letter);
 		}
-		_putchar('\n');
+		putchar('\n');
 	}
 }
 /**
@@ -25,6 +25,6 @@ void print_alphabet_x10(void)
  **/
 int main(void)
 {
-        print_alphabet_x10();
+        print_alphabet();
 	return (0);
 }
