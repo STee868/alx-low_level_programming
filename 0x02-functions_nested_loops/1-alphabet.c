@@ -16,12 +16,3 @@ void print_alphabet_x10(void)
 		_putchar('\n');
 	}
 }
-/**
- * main - Entry point
- * Return: 0 (success)
- **/
-int main(void)
-{
-	print_alphabet(void);
-	return (0);
-}
