@@ -1,17 +1,20 @@
 #include "main.h"
+
 /**
- * _puts_recursion - Prints a string using recursion
- * @s: The string to be printed
+ * main - Entry point
  *
- * Return: void
+ * Return: Always 0 (Success)
  */
-void _puts_recursion(char *s)
+int main(void)
 {
-	if (*s == '\0')
-	{
-		_putchar('\n');
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 	return (0);
-	}
-	_putchar(*s);
-	_puts_recursion(s + 1);
 }
