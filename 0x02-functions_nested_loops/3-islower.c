@@ -1,14 +1,10 @@
-
 /**
- *test_islower - checks for lowercase character
- * @c: character to check
+ * _putchar - writes a character to stdout
+ * @c: the character to write
  *
- * Return: 1 if c is lowercase, 0 otherwise
+ * Return: 1 on success, -1 on error
  */
-int test_islower(int c)
+int _putchar(char c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	else
-		return (0);
+    return (write(1, &c, 1) == 1 ? 1 : -1);
 }
