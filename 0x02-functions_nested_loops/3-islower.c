@@ -1,26 +1,41 @@
-#include "main.h"
+#include <unistd.h>
 
 /**
- * test_islower - Test the _islower function
+ * _putchar - Writes the character c to stdout
+ * @c: The character to print
  *
- * @n: Number to pass to _islower function
+ * Return: On success 1, on error -1
  */
-void test_islower(int n)
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+/**
+ * _islower - Checks if a character is lowercase
+ * @c: The character to check
+ *
+ * Return: 1 if c is lowercase, 0 otherwise
+ */
+int _islower(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
+}
+
+/**
+ * test_islower - Tests the _islower function
+ * @n: The character to check
+ */
+void test_islower(char n)
 {
 	int r;
 
 	r = _islower(n);
-	_putchar(r + '0');
-	_putchar('\n');
-}
-
-/**
- * main - Entry.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-	test_islower('H');
-	return (0);
+	if (r == 1)
+		_putchar('1');
+	else
+		_putchar('0');
 }
