@@ -2,7 +2,6 @@
 #include "main.h"
 
 /**
- * main - Entry
  * print_alphabet_x10 - function that prints 10 times the alphabet in lowercase
  * Return: 0 (success)
  **/
@@ -20,6 +19,10 @@ void print_alphabet_x10(void)
 		putchar('\n');
 	}
 }
+/**
+ * main - Entry point
+ * Return: 0 (success)
+ **/
 int main(void)
 {
         print_alphabet_x10();
