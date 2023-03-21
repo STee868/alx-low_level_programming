@@ -18,10 +18,6 @@ void print_alphabet_x10(void)
 		}
 		putchar('\n');
 	}
-/**
- * main Entry
- * return Always o
- */
 }
 int main(void)
 {
