@@ -2,6 +2,7 @@
 #include "main.h"
 int _putchar(char c);
 int print_last_digit(int n);
+int _abs(int);
 /**
  * print_last_digit - Prints the last digit of a number
  * @n: The number to be processed
