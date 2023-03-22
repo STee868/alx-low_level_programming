@@ -1,12 +1,17 @@
-#include<stdio.h>
-#include<unistd.h>
-#include"main.h"
+#include "main.h"
 
 /**
- * _putchar  -function checks for lower case character
+ * _islower - checks for lowercase character
+ * @c: the character to check
  *
+ * Return: 1 if c is lowercase
+ *         0 otherwise
  */
-int _putchar(int c)
+int _islower(int c);
+int _islower(int c)
 {
- return fwrite(1, &c, 1);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
 }
