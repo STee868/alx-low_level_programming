@@ -58,5 +58,5 @@ void print_times_table(int n)
 			print_number(product);
 		}
 		_putchar('\n');
-    }
+	}
 }
