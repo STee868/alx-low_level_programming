@@ -5,7 +5,6 @@
  *
  * Return:0 (success)
  */
-void _islower(void);
 int _islower(int c)
 {
 	if (islower(c))
