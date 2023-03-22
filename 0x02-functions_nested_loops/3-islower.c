@@ -1,14 +1,9 @@
-#include <ctype.h>
-
+#include <unistd.h>
 /**
- * _islower - function checks for lower case character
+ * _putchar  -function checks for lower case character
  *
- * Return:0 (success)
  */
-int _islower(int c)
+int _putchar(int c)
 {
-	if (islower(c))
-		return (1);
-	else
-		return (0);
+ return write(1, &c, 1);
 }
