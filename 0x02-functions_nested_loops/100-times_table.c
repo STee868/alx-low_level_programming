@@ -4,6 +4,7 @@
  * print_number - prints an integer as a string
  * @n: the number to print
  */
+void print_number(int n);
 void print_number(int n)
 {
 	int divisor = 1;
