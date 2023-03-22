@@ -1,4 +1,5 @@
 #include <stdlib.h>
+int _putchar(char c);
 int print_last_digit(int n);
 int _abs(int);
 /**
