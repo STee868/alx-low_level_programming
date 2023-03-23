@@ -5,17 +5,14 @@
  *
  * Return: void
  */
-int main (void)
-{
+void print_numbers(void);
 void print_numbers(void)
 {
-	int i;
+	int num;
 
-	for (i = 0; i < 10; i++)
+	for (num = 0; num < 10; num++)
 	{
-		_putchar(i + '0');
+		_putchar(num + '0');
 	}
 	_putchar('\n');
-}
-return(0);
 }
