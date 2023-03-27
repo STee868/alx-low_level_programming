@@ -1,18 +1,23 @@
 #include "main.h"
 
 /**
- * puts2 - Prints every other character of a string
- * starting with the first character, followed by a new line.
- * @str: The string to be printed.
+ * puts_half - prints half of a string
+ * @str: input string
  */
-void puts2(char *str)
+void puts_half(char *str)
 {
-	int i = 0;
+	int i, len = 0;
 
+	while (str[len] != '\0')
+		len++;
+	if (len % 2 == 0)
+		i = len / 2;
+	else
+		i = (len / 2) + 1;
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);
-		i += 2;
+		i++;
 	}
 	_putchar('\n');
 }
