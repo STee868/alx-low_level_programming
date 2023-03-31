@@ -1,37 +1,14 @@
 #include "main.h"
-#include <unistd.h>
+
+/* Declare the write function */
+ssize_t write(int fd, const void *buf, size_t count);
 
 /**
- * _strcat - Concatenates two strings.
- * @dest: The destination string.
- * @src: The source string.
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
  *
- * Return: A pointer to the resulting string dest.
- */
-char *_strcat(char *dest, char *src)
-{
-    int dest_len = 0, i;
-
-    while (dest[dest_len] != '\0')
-    {
-        dest_len++;
-    }
-
-    for (i = 0; src[i] != '\0'; i++)
-    {
-        dest[dest_len + i] = src[i];
-    }
-
-    dest[dest_len + i] = '\0';
-
-    return (dest);
-}
-
-/**
- * _putchar - Writes a character to the standard output.
- * @c: The character to be written.
- *
- * Return: 0 on success, -1 on error.
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 int _putchar(char c)
 {
@@ -39,37 +16,28 @@ int _putchar(char c)
 }
 
 /**
- * _putchar_str - Writes a string to the standard output.
- * @str: The string to be written.
+ * _strcat - concatenates two strings
+ * @dest: string to append by src
+ * @src: string to be appended to dest
  *
- * Return: void.
+ * Return: pointer to resulting string `dest`
  */
-void _putchar_str(char *str)
+char *_strcat(char *dest, char *src)
 {
-    int i = 0;
+    int i, j;
 
-    while (str[i] != '\0')
-    {
-        _putchar(str[i]);
+    i = j = 0;
+    while (dest[i] != '\0')
         i++;
+
+    while (src[j] != '\0')
+    {
+        dest[i] = src[j];
+        i++;
+        j++;
     }
+
+    dest[i] = '\0';
+
+    return (dest);
 }
-
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-int main(void)
-{
-    char s1[98] = "Hello ";
-    char s2[] = "World!\n";
-    char *ptr;
-
-    ptr = _strcat(s1, s2);
-
-    _putchar_str(ptr);
-
-    return (0);
-}
-
