@@ -1,7 +1,5 @@
 #include "main.h"
-
-/* Declare the write function */
-ssize_t write(int fd, const void *buf, size_t count);
+#include <stddef.h>
 
 /**
  * _putchar - writes the character c to stdout
@@ -17,27 +15,27 @@ int _putchar(char c)
 
 /**
  * _strcat - concatenates two strings
- * @dest: string to append by src
- * @src: string to be appended to dest
+ * @dest: pointer to the destination string
+ * @src: pointer to the source string
  *
- * Return: pointer to resulting string `dest`
+ * Return: pointer to the destination string
  */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *dest, const char *src)
 {
-    int i, j;
+    int dest_len = 0;
+    int i;
 
-    i = j = 0;
-    while (dest[i] != '\0')
-        i++;
-
-    while (src[j] != '\0')
+    while (dest[dest_len] != '\0')
     {
-        dest[i] = src[j];
-        i++;
-        j++;
+        dest_len++;
     }
 
-    dest[i] = '\0';
+    for (i = 0; src[i] != '\0'; i++)
+    {
+        dest[dest_len + i] = src[i];
+    }
 
-    return (dest);
+    dest[dest_len + i] = '\0';
+
+    return dest;
 }
