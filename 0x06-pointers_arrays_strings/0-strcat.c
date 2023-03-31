@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 
 /**
  * main - a function that concatenates two strings
@@ -17,11 +18,11 @@ int main(void)
 	_putchar_str(str1);
 	return (0);
 }
-void _putchar(char c)
+int _putchar(char c)
 {
 	write(1, &c, 1);
 }
-void _putchar_str(char *str)
+int _putchar_str(char *str)
 {
 	while (*str != '\0')
 	{
