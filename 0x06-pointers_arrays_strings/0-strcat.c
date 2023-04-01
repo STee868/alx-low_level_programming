@@ -12,7 +12,16 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+int _putchar_str(char *str)
+{
+	int i = 0;
+	
+	while (str[i] != '\0')_putchar(str[i]);
+	i++;
+}
 
+return (i);
+}
 /**
  * _strcat - concatenates two strings
  * @dest: the destination string
