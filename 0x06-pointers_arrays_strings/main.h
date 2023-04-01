@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_
 
-void _putchar_str(char *str);
+int _putchar_str(char *str);
 char *_strcat(char *dest, const char *src);
 int _putchar(char c);
 char *cap_string(char *);
