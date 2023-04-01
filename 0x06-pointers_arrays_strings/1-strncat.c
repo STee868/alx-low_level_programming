@@ -8,7 +8,7 @@
  *
  * Return: A pointer to the destination string.
  */
-char *_strncpy(char *dest, const char *src, size_t n)
+char *_strncpy(char *dest, char *src, size_t n)
 {
     /* Copy at most n characters from the source string to the destination buffer */
     size_t i;
