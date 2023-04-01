@@ -40,3 +40,17 @@ char *_strcat(char *dest, const char *src)
 
 	return (dest);
 }
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+	char str1[100] = "Hello ";
+	char str2[] = "world!";
+	_strcat(str1, str2);
+	_putchar_str(str1);
+
+	return (0);
+}
