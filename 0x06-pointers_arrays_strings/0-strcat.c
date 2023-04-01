@@ -1,41 +1,42 @@
 #include "main.h"
 #include <stddef.h>
+#include <unistd.h>
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
+ * _putchar - writes a character to stdout
+ * @c: the character to print
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: 1 on success, -1 on error
  */
 int _putchar(char c)
 {
-    return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**
  * _strcat - concatenates two strings
- * @dest: pointer to the destination string
- * @src: pointer to the source string
+ * @dest: the destination string
+ * @src: the source string
  *
- * Return: pointer to the destination string
+ * Return: a pointer to the resulting string
  */
 char *_strcat(char *dest, const char *src)
 {
-    int dest_len = 0;
-    int i;
+	int dest_len = 0;
+	char *dest_ptr = dest;
 
-    while (dest[dest_len] != '\0')
-    {
-        dest_len++;
-    }
+	while (*dest_ptr)
+	{
+		dest_ptr++;
+		dest_len++;
+	}
 
-    for (i = 0; src[i] != '\0'; i++)
-    {
-        dest[dest_len + i] = src[i];
-    }
+	while (*src)
+	{
+		*(dest_ptr++) = *(src++);
+		dest_len++;
+	}
+	*(dest_ptr) = '\0';
 
-    dest[dest_len + i] = '\0';
-
-    return dest;
+	return (dest);
 }
