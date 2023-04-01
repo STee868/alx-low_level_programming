@@ -56,18 +56,3 @@ char *_strcat(char *dest, const char *src)
 
     return (dest);
 }
-
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
-int main(void)
-{
-    char str[100] = "Hello ";
-
-    _strcat(str, "world!");
-    _putchar_str(str);
-
-    return (0);
-}
