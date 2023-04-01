@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 /**
  * _strncpy - Copies a string, up to n characters.
  * @dest: The destination buffer to copy to.
