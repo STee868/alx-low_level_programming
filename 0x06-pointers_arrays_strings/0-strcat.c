@@ -1,54 +1,62 @@
 #include "main.h"
-#include <stddef.h>
 #include <unistd.h>
 
 /**
- * _putchar - writes a character to stdout
- * @c: the character to print
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
  *
- * Return: 1 on success, -1 on error
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
-}
-int _putchar_str(char *str)
-{
-	int i = 0;
-	
-	while (str[i] != '\0')_putchar(str[i]);
-	i++;
+    return (write(1, &c, 1));
 }
 
-return (i);
+/**
+ * _putchar_str - writes a string to stdout
+ * @str: The string to print
+ *
+ * Return: The number of characters printed
+ */
+int _putchar_str(char *str)
+{
+    int i;
+
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        _putchar(str[i]);
+    }
+
+    return (i);
 }
+
 /**
  * _strcat - concatenates two strings
- * @dest: the destination string
- * @src: the source string
+ * @dest: The destination string
+ * @src: The source string
  *
- * Return: a pointer to the resulting string
+ * Return: A pointer to the resulting string dest
  */
 char *_strcat(char *dest, const char *src)
 {
-	int dest_len = 0;
-	char *dest_ptr = dest;
+    int dest_len = 0, i;
 
-	while (*dest_ptr)
-	{
-		dest_ptr++;
-		dest_len++;
-	}
+    while (dest[dest_len] != '\0')
+    {
+        dest_len++;
+    }
 
-	while (*src)
-	{
-		*(dest_ptr++) = *(src++);
-		dest_len++;
-	}
-	*(dest_ptr) = '\0';
+    for (i = 0; src[i] != '\0'; i++)
+    {
+        dest[dest_len + i] = src[i];
+    }
 
-	return (dest);
+    dest[dest_len + i] = '\0';
+
+    return (dest);
 }
+
 /**
  * main - Entry point
  *
@@ -56,10 +64,10 @@ char *_strcat(char *dest, const char *src)
  */
 int main(void)
 {
-	char str1[100] = "Hello ";
-	char str2[] = "world!";
-	_strcat(str1, str2);
-	_putchar_str(str1);
+    char str[100] = "Hello ";
 
-	return (0);
+    _strcat(str, "world!");
+    _putchar_str(str);
+
+    return (0);
 }
