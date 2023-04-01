@@ -1,28 +1,25 @@
 #include "main.h"
-#include <stddef.h>
+
 /**
- * _strncpy - Copies a string, up to n characters.
- * @dest: The destination buffer to copy to.
- * @src: The source string to copy from.
- * @n: The maximum number of characters to copy.
+ * _strncat - Concatenates two strings.
  *
- * Return: A pointer to the destination string.
+ * @dest: The destination buffer to append to.
+ * @src: The source string to append from.
+ * @n: The maximum number of characters to append.
+ *
+ * Return: A pointer to the resulting string dest.
  */
-char *_strncpy(char *dest, char *src, size_t n)
+char *_strncat(char *dest, const char *src, size_t n)
 {
-    /* Copy at most n characters from the source string to the destination buffer */
-    size_t i;
-    for (i = 0; i < n && src[i] != '\0'; i++)
-    {
-        dest[i] = src[i];
-    }
+	size_t dest_len = 0, i = 0;
 
-    /* If the source string is shorter than n, fill the remaining characters with null bytes */
-    for (; i < n; i++)
-    {
-        dest[i] = '\0';
-    }
+	while (dest[dest_len] != '\0')
+		dest_len++;
 
-    /* Return a pointer to the destination string */
-    return dest;
+	for (i = 0; i < n && src[i] != '\0'; i++)
+		dest[dest_len + i] = src[i];
+
+	dest[dest_len + i] = '\0';
+
+	return (dest);
 }
