@@ -10,7 +10,7 @@ void _puts_recursion(char *s)
 	if (*s == '\0') /* Base case: end of string */
 	{
 		_putchar('\n'); /* Print newline */
-		return (0);
+		return;
 	}
 	_putchar(*s);
 	_puts_recursion(s + 1);
