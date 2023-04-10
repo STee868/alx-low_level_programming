@@ -2,12 +2,11 @@
 
 /**
  * main - prints the program's name, followed by a new line
- * @argc: the number of arguments passed to the program
  * @argv: an array of pointers to the arguments
  *
  * Return: Always 0
  */
-int main(int argc, char *argv[])
+int main(char *argv[])
 {
     int i;
 
