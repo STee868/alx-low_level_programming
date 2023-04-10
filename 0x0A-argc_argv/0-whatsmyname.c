@@ -10,10 +10,9 @@
  */
 int main(int argc, char **argv)
 {
-    (void) argc;
+	(void) argc;
 
-    /* Print the first argument, which is the name of the program */
-    printf("%s\n", argv[0]);
+	printf("%s\n", argv[0]);
 
-    return (0);
+	return (0);
 }
