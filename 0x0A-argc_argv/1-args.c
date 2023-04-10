@@ -6,13 +6,14 @@
  *
  * Return: The number of arguments
  */
-int count_args(char *argv[])
+int count_args(char **argv)
 {
     int count = 0;
 
-    while (argv[count] != NULL)
+    while (*argv)
     {
         count++;
+        argv++;
     }
 
     return (count);
@@ -25,7 +26,7 @@ int count_args(char *argv[])
  *
  * Return: Always 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
     int num_args;
 
