@@ -1,25 +1,18 @@
 #include "dog.h"
 #include <stdlib.h>
 /**
- * main - Entry point for the program
+ * free_dog - frees memory allocated for a dog
+ * @d: pointer to the dog structure
  *
- * This program demonstrates the usage of the free_dog function
- * to free the memory allocated for a dog_t struct.
- *
- * Return: Always 0
+ * This function takes a pointer to a dog structure and frees the memory
+ * that was allocated for it using malloc.
  */
-int main(void)
+void free_dog(dog_t *d)
 {
-	dog_t *my_dog = new_dog("Buddy", 2.5, "John");
-
-	if (my_dog == NULL)
+	if (d != NULL)
 	{
-		return (1);
+		free(d->name);
+		free(d->owner);
+		free(d);
 	}
-	print_dog(my_dog);
-
-	free_dog(my_dog);
-
-	return (0);
 }
-
