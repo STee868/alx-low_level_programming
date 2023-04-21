@@ -1,0 +1,8 @@
+um_them_all.c:14:2: error: ISO C90 forbids mixed declarations and code [-Werror=declaration-after-statement]
+   14 |  int sum = 0;
+      |  ^~~
+0-sum_them_all.c:19:2: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+   19 |  for (unsigned int i = 0; i < n; i++)
+      |  ^~~
+0-sum_them_all.c:19:2: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+cc1: all warnings being treated as errors
