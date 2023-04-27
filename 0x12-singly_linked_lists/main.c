@@ -2,20 +2,15 @@
 
 int main(void)
 {
-        list_t *head;
+    list_t *head = NULL;
 
-        /* Create the linked list */
-        head = add_node("Holberton", 9);
-        add_node("School", 6);
-        add_node("Full", 4);
-        add_node("Stack", 5);
+    add_node_end(&head, "World");
+    add_node_end(&head, "Hello");
 
-        /* Print the linked list */
-        print_list(head);
+    print_list(head);
 
-        /* Free the linked list */
-        free_list(head);
+    free_list(head);
 
-        return (0);
+    return (0);
 }
 
