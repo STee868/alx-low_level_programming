@@ -1,31 +1,54 @@
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 
-int main(int argc, char *argv[]) {
+int main(void)
+{
+    /* Test list_len function */
     list_t *head = NULL;
+    list_t *new;
+    list_t hello = {"World", 5, NULL};
+    size_t n;
 
-    // Add some nodes to the beginning of the list
-    add_node(&head, "Hello");
-    add_node(&head, "world");
-    add_node(&head, "how");
-    add_node(&head, "are");
-    add_node(&head, "you");
+    head = &hello;
+    new = malloc(sizeof(list_t));
+    if (new == NULL)
+    {
+        printf("Error: unable to allocate memory\n");
+        return (1);
+    }
+    new->str = strdup("Hello");
+    new->len = 5;
+    new->next = head;
+    head = new;
+    n = list_len(head);
+    printf("Number of elements in the list: %lu\n", n);
 
-    // Add a node to the end of the list
-    add_node_end(&head, "doing?");
+    /* Test add_node function */
+    list_t *new_node;
+    new_node = add_node(&head, "New Node");
+    if (new_node == NULL)
+    {
+        printf("Error: unable to add new node\n");
+        return (1);
+    }
+    printf("Added new node with value '%s'\n", new_node->str);
 
-    // Print the list and get the number of nodes
-    size_t num_nodes = print_list(head);
-    printf("Number of nodes: %zu\n", num_nodes);
+    /* Test add_node_end function */
+    list_t *end_node;
+    end_node = add_node_end(&head, "End Node");
+    if (end_node == NULL)
+    {
+        printf("Error: unable to add new node at end\n");
+        return (1);
+    }
+    printf("Added new node at end with value '%s'\n", end_node->str);
 
-    // Get the length of the list using the list_len function
-    size_t list_length = list_len(head);
-    printf("Length of list: %zu\n", list_length);
-
-    // Free the list
+    /* Test free_list function */
     free_list(head);
-    return 0;
+    printf("Freed memory\n");
+
+    return (0);
 }
 
