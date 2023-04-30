@@ -10,7 +10,7 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		n = -n;
 	}
 
@@ -19,7 +19,7 @@ void print_number(int n)
 
 	while (divisor > 0)
 	{
-		_putchar(n / divisor + '0');
+		putchar(n / divisor + '0');
 		n %= divisor;
 		divisor /= 10;
 	}
