@@ -10,8 +10,8 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t count = 0;
-	listint_t *current, *tmp;
+	size_t count = 0, i;
+	listint_t *current, *tmp, *visited[1024];
 
 	if (h == NULL || *h == NULL)
 		return (0);
@@ -20,15 +20,20 @@ size_t free_listint_safe(listint_t **h)
 
 	while (current)
 	{
+		visited[count] = current;
+
 		count++;
 		tmp = current;
 		current = current->next;
 		free(tmp);
 
-		if (current >= tmp)
+		for (i = 0; i < count; i++)
 		{
-			*h = NULL;
-			exit(98);
+			if (visited[i] == current)
+			{
+				*h = NULL;
+				exit(98);
+			}
 		}
 	}
 	*h = NULL;
