@@ -1,66 +1,51 @@
-#include "main.h"
-#include <elf.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include <string.h>
+#include "main.h"
 
-#define BUF_SIZE 128
-
-int main(int argc, char **argv)
-{
-    int fd, i;
+int main(int argc, char **argv) {
     Elf64_Ehdr header;
+    FILE *file;
 
-    if (argc != 2)
-    {
-        dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", argv[0]);
-        exit(1);
+    if (argc != 2) {
+        printf("Usage: %s <ELF file>\n", argv[0]);
+        return 1;
     }
 
-    fd = open(argv[1], O_RDONLY);
-    if (fd == -1)
-    {
-        perror("Error opening file");
-        exit(1);
+    file = fopen(argv[1], "rb");
+    if (!file) {
+        printf("Error: could not open file %s\n", argv[1]);
+        return 1;
     }
 
-    if (read(fd, &header, sizeof(header)) != sizeof(header))
-    {
-        perror("Error reading file");
-        exit(1);
+    if (fread(&header, sizeof(header), 1, file) != 1) {
+        printf("Error: could not read ELF header from file %s\n", argv[1]);
+        return 1;
     }
 
-    printf("ELF Header:\n");
-    printf("Magic:");
-
-    for (i = 0; i < EI_NIDENT; i++)
-        printf("%02x ", header.e_ident[i]);
-    printf("\n");
-
-    printf("Class:%s\n", header.e_ident[EI_CLASS] == ELFCLASS32 ? "ELF32" : "ELF64");
-    printf("Data:%s\n", header.e_ident[EI_DATA] == ELFDATA2MSB ? "big-endian" : "little-endian");
-    printf("Version:%d\n", header.e_ident[EI_VERSION]);
-    printf("OS/ABI:%d\n", header.e_ident[EI_OSABI]);
-    printf("ABI Version:%d\n", header.e_ident[EI_ABIVERSION]);
-    printf("Type:%d\n", header.e_type);
-    printf("Entry point address:0x%lx\n", header.e_entry);
-    printf("Start of program headers:%ld (bytes into file)\n", header.e_phoff);
-    printf("Start of section headers:%ld (bytes into file)\n", header.e_shoff);
-    printf("Flags:0x%x\n", header.e_flags);
-    printf("Size of this header:%d (bytes)\n", header.e_ehsize);
-    printf("Size of program headers:%d (bytes)\n", header.e_phentsize);
-    printf("Number of program headers:%d\n", header.e_phnum);
-    printf("Size of section headers:%d (bytes)\n", header.e_shentsize);
-    printf("Number of section headers:%d\n", header.e_shnum);
-    printf("Section header string table index:%d\n", header.e_shstrndx);
-
-    if (close(fd) == -1)
-    {
-        perror("Error closing file");
-        exit(1);
+    if (memcmp(header.e_ident, ELFMAG, SELFMAG) != 0) {
+        printf("Error: %s is not an ELF file\n", argv[1]);
+        return 1;
     }
 
-    return (0);
+    print_magic(header.e_ident);
+    print_class(header.e_ident[EI_CLASS]);
+    print_data(header.e_ident[EI_DATA]);
+    print_abiversion(header.e_ident[EI_VERSION]);
+    print_type(header.e_type);
+    print_machine(header.e_machine);
+    print_version(header.e_version);
+    print_entry(header.e_entry);
+    print_phoff(header.e_phoff);
+    print_shoff(header.e_shoff);
+    print_flags(header.e_flags);
+    print_ehsize(header.e_ehsize);
+    print_phentsize(header.e_phentsize);
+    print_phnum(header.e_phnum);
+    print_shentsize(header.e_shentsize);
+    print_shnum(header.e_shnum);
+    print_shstrndx(header.e_shstrndx);
+
+    fclose(file);
+    return 0;
 }
 
